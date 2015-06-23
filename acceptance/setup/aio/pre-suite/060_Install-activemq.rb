@@ -119,12 +119,12 @@ EOS
       puppet_cmd = "/opt/puppetlabs/bin/puppet"
       puppet_confdir = "/etc/puppetlabs/puppet"
     else
-      #mco_confdir = "C:\\ProgramData\\PuppetLabs\\mcollective\\etc"
-      mco_confdir = "C:\\ProgramData\\PuppetLabs\\mcollective\\etc"
-      libdir = "#{mco_confdir}\\plugins"
-      logdir = "C:\\ProgramData\\PuppetLabs\\mcollective\\var\\log"
-      puppet_cmd = "C:\\Program Files\\Puppet Labs\\Puppet\\bin\\puppet.bat"
-      puppet_confdir = "C:\\ProgramData\\PuppetLabs\\puppept\\etc\\puppet"
+      #mco_confdir = "C:/ProgramData/PuppetLabs\\mcollective\\etc"
+      mco_confdir = "C:/ProgramData/PuppetLabs/mcollective/etc"
+      libdir = "#{mco_confdir}/plugins"
+      logdir = "C:/ProgramData/PuppetLabs/mcollective/var/log"
+      puppet_cmd = "C:/Program Files/Puppet Labs\\Puppet\\bin\\puppet.bat"
+      puppet_confdir = "C:/ProgramData/PuppetLabs\\puppept\\etc\\puppet"
     end
 
 
@@ -169,14 +169,14 @@ EOS
 main_collective = mcollective
 collectives = mcollective
 libdir = #{libdir}
-logfile = #{logdir}\\mcollective.log
+logfile = #{logdir}/mcollective.log
 loglevel = info
 daemonize = 1
 
 securityprovider = ssl
-plugin.ssl_server_private = #{mco_confdir}\\server.key
-plugin.ssl_server_public = #{mco_confdir}\\server.crt
-plugin.ssl_client_cert_dir = #{mco_confdir}\\ssl-clients\\
+plugin.ssl_server_private = #{mco_confdir}/server.key
+plugin.ssl_server_public = #{mco_confdir}/server.crt
+plugin.ssl_client_cert_dir = #{mco_confdir}/ssl-clients/
 
 connector = activemq
 plugin.activemq.pool.size = 1
@@ -185,19 +185,19 @@ plugin.activemq.pool.1.port = 61613
 plugin.activemq.pool.1.user = mcollective
 plugin.activemq.pool.1.password = marionette
 plugin.activemq.pool.1.ssl = true
-plugin.activemq.pool.1.ssl.ca = #{mco_confdir}\\ca_crt.pem
-plugin.activemq.pool.1.ssl.cert = #{mco_confdir}\\server.crt
-plugin.activemq.pool.1.ssl.key = #{mco_confdir}\\server.key
+plugin.activemq.pool.1.ssl.ca = #{mco_confdir}/ca_crt.pem
+plugin.activemq.pool.1.ssl.cert = #{mco_confdir}/server.crt
+plugin.activemq.pool.1.ssl.key = #{mco_confdir}/server.key
 
 # Facts
 factsource = yaml
-plugin.yaml = #{mco_confdir}\\facts.yaml
+plugin.yaml = #{mco_confdir}/facts.yaml
 
 # Plugin settings for puppet-agent
 plugin.puppet.command = "#{puppet_cmd}" agent
 plugin.puppet.splay = true
 plugin.puppet.splaylimit = 30
-plugin.puppet.config = #{puppet_confdir}\\puppet.conf
+plugin.puppet.config = #{puppet_confdir}/puppet.conf
 plugin.puppet.windows_service = puppet
 plugin.puppet.signal_daemon = true
 EOS
